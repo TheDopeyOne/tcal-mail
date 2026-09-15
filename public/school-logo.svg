@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#141416" />
+      <stop offset="85%" stop-color="#070709" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+
+    <!-- Red Glow Filter -->
+    <filter id="redGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Circular Base Badge -->
+  <circle cx="200" cy="200" r="192" fill="url(#bgGrad)" stroke="#222226" stroke-width="4" />
+  <circle cx="200" cy="200" r="186" fill="none" stroke="#E11D48" stroke-width="1.5" opacity="0.4" />
+
+  <!-- Red Crescent & Star Emblem (Glowing Turkish Hilal & Yıldız) -->
+  <g filter="url(#redGlow)" opacity="0.95">
+    <!-- Crescent Moon (Hilal) -->
+    <path d="M 235,160 
+             A 72,72 0 1,0 150,110
+             A 62,62 0 1,1 235,160 Z" 
+          fill="#DC2626" />
+    <!-- Star (Yıldız) positioned elegantly near crescent -->
+    <polygon points="248,142 254,152 266,152 256,159 260,170 248,163 236,170 240,159 230,152 242,152" 
+             fill="#DC2626" />
+  </g>
+
+  <!-- Top Curved / Horizontal Accent Lines for TOKİ -->
+  <line x1="75" y1="150" x2="155" y2="150" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9" />
+  <text x="200" y="154" 
+        font-family="'Impact', 'Arial Black', sans-serif" 
+        font-size="25" 
+        font-weight="900" 
+        letter-spacing="5" 
+        fill="#FFFFFF" 
+        text-anchor="middle">TOKİ</text>
+  <line x1="245" y1="150" x2="325" y2="150" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9" />
+
+  <!-- Upper Red Curve -->
+  <path d="M 45,178 Q 200,165 355,178" fill="none" stroke="#DC2626" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- Center Prominent White Text: CUMHURİYET -->
+  <text x="200" y="235" 
+        font-family="'Impact', 'Arial Black', sans-serif" 
+        font-size="44" 
+        font-weight="900" 
+        letter-spacing="2" 
+        fill="#FFFFFF" 
+        text-anchor="middle"
+        style="text-shadow: 0 3px 12px rgba(0,0,0,0.8);">CUMHURİYET</text>
+
+  <!-- Lower Red Curve -->
+  <path d="M 45,248 Q 200,260 355,248" fill="none" stroke="#DC2626" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- Subtitle Text: ANADOLU LİSESİ -->
+  <text x="200" y="280" 
+        font-family="'Impact', 'Arial Black', sans-serif" 
+        font-size="24" 
+        font-weight="800" 
+        letter-spacing="4" 
+        fill="#DC2626" 
+        text-anchor="middle">ANADOLU LİSESİ</text>
+
+  <!-- Bottom Year: - 2010 - with side dividers -->
+  <line x1="90" y1="312" x2="160" y2="312" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+  <text x="200" y="318" 
+        font-family="'Impact', 'Arial Black', sans-serif" 
+        font-size="20" 
+        font-weight="900" 
+        letter-spacing="3" 
+        fill="#DC2626" 
+        text-anchor="middle">2010</text>
+  <line x1="240" y1="312" x2="310" y2="312" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+</svg>

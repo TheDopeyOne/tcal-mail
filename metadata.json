@@ -1,0 +1,6 @@
+{
+  "name": "Toki Cumhuriyet Anadolu Lisesi Toplu Mail App V1",
+  "description": "Öğretmen ders programı PDF'lerini otomatik ayrıştırıp Gmail SMTP üzerinden tek tıkla toplu mail gönderen Apple Bento Box tasarımlı okul yönetim sistemi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
