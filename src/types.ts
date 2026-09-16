@@ -30,8 +30,6 @@ export interface SchedulePage {
   classCount?: number;
   sampleSlots?: TimetableSlot[];
   pdfPageData?: string; // base64 or generated blob url
-  exactHours?: string;
-  exactClass?: string;
 }
 
 export interface SmtpSettings {

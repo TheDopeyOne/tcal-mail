@@ -229,21 +229,6 @@ export const ScheduleParserView: React.FC<ScheduleParserViewProps> = ({
                   </button>
                 </div>
 
-                {(page.exactHours || page.exactClass) && (
-                  <div className="flex items-center gap-2 mb-2">
-                    {page.exactHours && (
-                      <span className="px-1.5 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold">
-                        {page.exactHours} Saat
-                      </span>
-                    )}
-                    {page.exactClass && (
-                      <span className="px-1.5 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200 text-[10px] font-bold">
-                        Sınıf Öğretmenliği: {page.exactClass}
-                      </span>
-                    )}
-                  </div>
-                )}
-
                 {isEditingThis ? (
                   <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-200 space-y-2 animate-in fade-in">
                     <select

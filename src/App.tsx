@@ -249,13 +249,6 @@ export default function App() {
           }
         }
 
-        // Extract exact hours and exact class teacher if present in raw text
-        let exactHoursMatch = rawText.match(/Toplam\s*Ders\s*Saati\s*:\s*(\d+)/i);
-        let exactClassMatch = rawText.match(/Sınıf\s*Öğretmenliği\s*:\s*([A-Z0-9\-]+)/i);
-
-        let exactHours = exactHoursMatch ? exactHoursMatch[1] : undefined;
-        let exactClass = exactClassMatch ? exactClassMatch[1].trim() : undefined;
-
         newPages.push({
           pageNumber: pageNo,
           rawText,
@@ -266,8 +259,6 @@ export default function App() {
           status: finalMatchedTeacher ? 'matched' : 'manual_required',
           scheduleTitle: `${finalMatchedTeacher?.branch || 'Haftalık'} Ders Programı`,
           pdfPageData: singlePageBytes[i] ? uint8ArrayToBase64(singlePageBytes[i]) : undefined,
-          exactHours: exactHours,
-          exactClass: exactClass,
         });
       }
 
@@ -328,9 +319,6 @@ export default function App() {
       console.warn('Orjinal PDF sayfası bulunamadı.');
     }
 
-    const teacherHours = page.exactHours || teacher.weeklyHours || 22;
-    const teacherClass = page.exactClass ? ` | <strong>Sınıf Öğretmenliği:</strong> ${page.exactClass}` : '';
-
     const payload = {
       to: teacher.email,
       teacherName: teacher.fullName,
@@ -342,7 +330,7 @@ export default function App() {
           <p><strong>Sayın ${teacher.fullName},</strong></p>
           <p style="white-space: pre-line;">${mailTemplate.bodyText}</p>
           <div style="background: #F9F9FB; padding: 12px 16px; border-radius: 12px; margin: 16px 0; border: 1px solid #E5E5EA;">
-            <p style="margin: 0; font-size: 13px;"><strong>Branş:</strong> ${teacher.branch} | <strong>Haftalık Ders Saati:</strong> ${teacherHours} Saat${teacherClass}</p>
+            <p style="margin: 0; font-size: 13px;"><strong>Branş:</strong> ${teacher.branch} | <strong>Haftalık Ders Saati:</strong> ${teacher.weeklyHours || 22} Saat</p>
             <p style="margin: 4px 0 0; font-size: 13px; color: #E11D48;">📎 Sayfanıza ait tekil ders programınız ekte PDF olarak sunulmuştur.</p>
           </div>
           <hr style="border: none; border-top: 1px solid #E5E5EA; margin: 20px 0;" />
@@ -470,9 +458,6 @@ export default function App() {
         console.warn('Orjinal PDF sayfası bulunamadı.');
       }
 
-      const teacherHours = page.exactHours || teacher.weeklyHours || 22;
-      const teacherClass = page.exactClass ? ` | <strong>Sınıf Öğretmenliği:</strong> ${page.exactClass}` : '';
-
       const payload = {
         to: teacher.email,
         teacherName: teacher.fullName,
@@ -484,7 +469,7 @@ export default function App() {
             <p><strong>Sayın ${teacher.fullName},</strong></p>
             <p style="white-space: pre-line;">${mailTemplate.bodyText}</p>
             <div style="background: #F9F9FB; padding: 12px 16px; border-radius: 12px; margin: 16px 0; border: 1px solid #E5E5EA;">
-              <p style="margin: 0; font-size: 13px;"><strong>Branş:</strong> ${teacher.branch} | <strong>Haftalık Ders Saati:</strong> ${teacherHours} Saat${teacherClass}</p>
+              <p style="margin: 0; font-size: 13px;"><strong>Branş:</strong> ${teacher.branch} | <strong>Haftalık Ders Saati:</strong> ${teacher.weeklyHours || 22} Saat</p>
               <p style="margin: 4px 0 0; font-size: 13px; color: #E11D48;">📎 Sayfanıza ait tekil ders programınız ekte PDF olarak sunulmuştur.</p>
             </div>
             <hr style="border: none; border-top: 1px solid #E5E5EA; margin: 20px 0;" />
